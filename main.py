@@ -716,7 +716,9 @@ if __name__ == "__main__":
         # run
         if opt.train:
             try:
+                #print('bef')
                 trainer.fit(model, data)
+                #print('aft')
             except Exception:
                 melk()
                 raise

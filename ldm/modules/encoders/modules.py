@@ -4,7 +4,7 @@ from functools import partial
 import clip
 from einops import rearrange, repeat
 import kornia
-
+import sng_parser
 
 from ldm.modules.x_transformer import Encoder, TransformerWrapper  # TODO: can we directly rely on lucidrains code and simply add this as a reuirement? --> test
 
@@ -91,15 +91,26 @@ class BERTEmbedder(AbstractEncoder):
                                               emb_dropout=embedding_dropout)
 
     def forward(self, text):
+        #print(text)
+        #text[0] = "a painting of a virus monster playing guitar"
+        #text[0] = "Raw egg and Raw egg in Frying Pan"
+        #text[1] = "Egg [SEP] Egg [SEP] Frying Pan [SEP] Tomato [SEP] Broccoli"
+        #text = [pr + ". a raw egg is not cooked and is not firm." for pr in text]
+        #graph = [sng_parser.parse(caption) for caption in text]
+        #print(graph)
+        #text[0] += " Tomato and Broccoli" 
+        #text[1] += "[SEP] Tomato [SEP] Broccoli [SEP]" 
         if self.use_tknz_fn:
             tokens = self.tknz_fn(text)#.to(self.device)
         else:
             tokens = text
+        #print(tokens)
         z = self.transformer(tokens, return_embeddings=True)
         return z
 
     def encode(self, text):
         # output of length 77
+        #text[0] += " Tomato Broccoli" 
         return self(text)
 
 

@@ -40,6 +40,7 @@ class ImageNetBase(Dataset):
         return len(self.data)
 
     def __getitem__(self, i):
+        #print(len(self.data),i)
         return self.data[i]
 
     def _prepare(self):
@@ -142,7 +143,7 @@ class ImageNetTrain(ImageNetBase):
         147897477120,
     ]
 
-    def __init__(self, process_images=True, data_root=None, **kwargs):
+    def __init__(self, process_images=True, data_root="/mnt/mcmlHDD/Data/ImageNet/", **kwargs):
         self.process_images = process_images
         self.data_root = data_root
         super().__init__(**kwargs)
@@ -208,7 +209,7 @@ class ImageNetValidation(ImageNetBase):
         1950000,
     ]
 
-    def __init__(self, process_images=True, data_root=None, **kwargs):
+    def __init__(self, process_images=True, data_root="/mnt/mcmlHDD/Data/ImageNet/", **kwargs):
         self.data_root = data_root
         self.process_images = process_images
         super().__init__(**kwargs)
