@@ -1,0 +1,1 @@
+python scripts/txt2img.py --ddim_eta 0.0 --n_samples 1 --n_iter 1 --scale 1.0  --ddim_steps 200 --plms --data_source coco --outdir /mnt/azadeHDD/results/scenegenie/ --begin 512 --end 1024
