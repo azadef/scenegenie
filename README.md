@@ -29,7 +29,7 @@ wget -O models/ldm/text2img-large/model.ckpt https://ommer-lab.com/files/latent-
 ```
 and sample with
 ```
-python scripts/txt2img.py --prompt "a virus monster is playing guitar, oil on canvas" --ddim_eta 0.0 --n_samples 4 --n_iter 4 --scale 5.0  --ddim_steps 50
+python scripts/txt2img.py --scene_genie --ddim_eta 0.0 --n_samples 4 --n_iter 4 --scale 5.0  --ddim_steps 50
 ```
 
 
