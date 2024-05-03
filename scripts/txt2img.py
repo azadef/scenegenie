@@ -125,7 +125,12 @@ if __name__ == "__main__":
     parser.add_argument(
         "--data_path",
         type=str,
-        default="/mnt/azadeHDD/scenegenie/glid-3-xl/predicted_1110/SG2IM_CLIP/COCO/"
+        default="./scenegenie/predicted_1110/SG2IM_CLIP/COCO/"
+    )
+    parser.add_argument(
+        "--scene_genie",
+        action='store_true',
+        help="use scene_genie guidance",
     )
     
     parser.add_argument(
@@ -153,7 +158,9 @@ if __name__ == "__main__":
     outpath = opt.outdir
 
     prompt = opt.prompt
-    score_corrector = Guider(sampler)
+    score_corrector = None
+    if opt.scene_genie:
+        score_corrector = Guider(sampler)
 
     sample_path = os.path.join(outpath, "samples")
     os.makedirs(sample_path, exist_ok=True)
@@ -191,8 +198,9 @@ if __name__ == "__main__":
 
 
             bounding_box_pred =  torch.cat( (bounding_box_pred,torch.unsqueeze( torch.FloatTensor([0,0,1,1]), 0).cuda()),0).cpu()
-            
-            score_corrector.setData(prompt, bounding_box_pred, obj_list)
+
+            if opt.scene_genie:
+                score_corrector.setData(prompt, bounding_box_pred, obj_list)
             
             gc.collect()
             
