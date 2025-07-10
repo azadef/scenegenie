@@ -20,6 +20,8 @@ conda activate ldm
 A general list of all available checkpoints is available via [model zoo](#model-zoo).
 If you use any of these models in your work, we are always happy to receive a [citation](#bibtex).
 
+The pretrained models are available to download through the following link: [Download](https://syncandshare.lrz.de/getlink/fiJi1JTKjL7eN9uiBeXSJ2/checkpoints.zip)
+
 ## Text-to-Image
 
 Download the pre-trained weights (5.7GB)
