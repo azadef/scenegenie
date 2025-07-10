@@ -21,6 +21,7 @@ A general list of all available checkpoints is available via [model zoo](#model-
 If you use any of these models in your work, we are always happy to receive a [citation](#bibtex).
 
 The pretrained models are available to download through the following link: [checkpoints.zip](https://syncandshare.lrz.de/getlink/fiJi1JTKjL7eN9uiBeXSJ2/checkpoints.zip)
+
 The predicted captions file (predicted_1110): [predicted_1110.zip](https://syncandshare.lrz.de/getlink/fi4mv8M4zCCpSMorV5TnK6/predicted_1110.zip)
 
 ## Text-to-Image
